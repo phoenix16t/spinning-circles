@@ -1,6 +1,6 @@
 {
   "name": "spinning-circles",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A series of nested circles spinning in unison to create interesting visual effects",
   "main": "src/index.js",
   "dependencies": {

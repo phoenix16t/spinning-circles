@@ -30,10 +30,10 @@ $triangle-size: 7;
     }
   }
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  label {
+    flex-grow: 1;
+    text-align: right;
+    white-space: nowrap;
   }
   li {
     align-items: center;
@@ -41,6 +41,11 @@ $triangle-size: 7;
     justify-content: center;
     line-height: 20px;
     overflow: hidden;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
 
   .arrow {

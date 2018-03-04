@@ -1,4 +1,5 @@
 import React from 'react';
+import Slider from '../slider';
 import './style.scss';
 
 export default class Menu extends React.Component {
@@ -7,7 +8,7 @@ export default class Menu extends React.Component {
     this.state = ({ isOpen: false });
   };
 
-  togglePulldown = () => {
+  toggleMenu = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
@@ -18,12 +19,26 @@ export default class Menu extends React.Component {
     return (
       <div className={ cls.join(' ') }>
         <ul>
-          <li>Control 1</li>
-          <li>Control 2</li>
-          <li>Bigger Bigger Bigger Control 3</li>
-          <li>Control 4</li>
+          <li>
+            <label>Padding Bottom - { this.props.paddingBottom }px </label>
+            <Slider
+              handleChange={ this.props.handleChange }
+              name='paddingBottom'
+              value={ this.props.paddingBottom }
+            />
+          </li>
+          <li>
+            <label>Padding Top - { this.props.paddingTop }px </label>
+            <Slider
+              handleChange={ this.props.handleChange }
+              name='paddingTop'
+              value={ this.props.paddingTop }
+            />
+          </li>
+
           <hr />
-          <li onClick={ this.togglePulldown }>
+
+          <li onClick={ this.toggleMenu }>
             Menu <span className="arrow" />
           </li>
         </ul>

@@ -1,0 +1,55 @@
+$triangle-size: 7;
+
+.menu {
+  background-color: lightblue;
+  border: 2px solid gray;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: 0;
+  box-sizing: border-box;
+  margin-left: -200px;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  transition: .3s all;
+
+  &.close {
+    margin-top: 30px;
+    max-width: 100px;
+    transform: translateY(-100%);
+    .arrow {
+      transform: rotateZ(180deg);
+    }
+  }
+  &.open {
+    margin-top: 0;
+    max-width: 300px;
+    transform: translateY(0%);
+    .arrow {
+      transform: rotateZ(0deg);
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    line-height: 20px;
+    overflow: hidden;
+  }
+
+  .arrow {
+    border-bottom: #{$triangle-size * 2 * .866}px solid black;
+    border-left: #{$triangle-size}px solid transparent;
+    border-right: #{$triangle-size}px solid transparent;
+    height: 0;
+    margin-left: 10px;
+    transition: .3s all;
+    width: 0;
+  }
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import './style.scss';
 
 export default class Slider extends React.Component {
   render() {

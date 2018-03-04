@@ -1,6 +1,5 @@
 import React from 'react';
 import Slider from '../slider';
-import './style.scss';
 
 export default class Menu extends React.Component {
   constructor() {

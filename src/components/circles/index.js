@@ -1,6 +1,5 @@
 import React from 'react';
 import * as constants from '../../constants';
-import './style.scss';
 
 export default class Circles extends React.Component {
   renderCircles = (count) => {

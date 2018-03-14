@@ -1,19 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import actions from '../../actions';
 import Slider from '../slider';
 
-export default class Menu extends React.Component {
-  constructor() {
-    super();
-    this.state = ({ isOpen: false });
-  };
-
-  toggleMenu = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-  };
-
+class Menu extends React.Component {
   render() {
     const cls = ['menu'];
-    this.state.isOpen ? cls.push('open') : cls.push('close');
+    this.props.isOpen ? cls.push('open') : cls.push('close');
 
     return (
       <div className={ cls.join(' ') }>
@@ -21,7 +14,6 @@ export default class Menu extends React.Component {
           <li>
             <label>Padding Bottom - { this.props.paddingBottom }px </label>
             <Slider
-              handleChange={ this.props.handleChange }
               name='paddingBottom'
               value={ this.props.paddingBottom }
             />
@@ -29,7 +21,6 @@ export default class Menu extends React.Component {
           <li>
             <label>Padding Top - { this.props.paddingTop }px </label>
             <Slider
-              handleChange={ this.props.handleChange }
               name='paddingTop'
               value={ this.props.paddingTop }
             />
@@ -37,7 +28,7 @@ export default class Menu extends React.Component {
 
           <hr />
 
-          <li onClick={ this.toggleMenu }>
+          <li onClick={ this.props.toggleMenu }>
             Menu <span className="arrow" />
           </li>
         </ul>
@@ -45,3 +36,20 @@ export default class Menu extends React.Component {
     );
   };
 };
+
+const mapStateToProps = state => {
+  return {
+    isOpen: state.menu.isOpen,
+    paddingBottom: state.circles.paddingBottom,
+    paddingTop: state.circles.paddingTop
+  };
+};
+
+const mapDispatchToProps = {
+  toggleMenu: actions.menu.toggleMenu
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Menu);

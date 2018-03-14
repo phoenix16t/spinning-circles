@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import * as constants from '../../constants';
 
-export default class Circles extends React.Component {
+class Circles extends React.Component {
   renderCircles = (count) => {
     const circles = count > 0 ? this.renderCircles(count - 1) : '';
     const styles = count === constants.numSpinners ? { marginTop: -(count * 2) } : {};
@@ -19,3 +20,14 @@ export default class Circles extends React.Component {
     return this.renderCircles(constants.numSpinners);
   };
 };
+
+const mapStateToProps = state => {
+  return {
+    paddingBottom: state.circles.paddingBottom,
+    paddingTop: state.circles.paddingTop
+  };
+};
+
+export default connect(
+  mapStateToProps
+)(Circles);

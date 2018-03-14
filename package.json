@@ -1,11 +1,13 @@
 {
   "name": "spinning-circles",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A series of nested circles spinning in unison to create interesting visual effects",
   "main": "src/index.js",
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
